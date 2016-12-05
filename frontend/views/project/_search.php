@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'project_type_id') ?>
-
-    <?= $form->field($model, 'posted_by_id') ?>
+    <?= $form->field($model, 'user_id') ?>
 
     <?= $form->field($model, 'project_name') ?>
+
+    <?= $form->field($model, 'job_type') ?>
 
     <?= $form->field($model, 'project_summary') ?>
 
@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'is_active') ?>
 
-    <?php // echo $form->field($model, 'created_date') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

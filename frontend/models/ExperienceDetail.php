@@ -7,7 +7,8 @@ use Yii;
 /**
  * This is the model class for table "experience_detail".
  *
- * @property integer $staff_id
+ * @property integer $id
+ * @property integer $user_id
  * @property string $is_current_job
  * @property string $start_date
  * @property string $end_date
@@ -17,7 +18,7 @@ use Yii;
  * @property string $job_location_country
  * @property string $description
  *
- * @property StaffProfile $staff
+ * @property User $user
  */
 class ExperienceDetail extends \yii\db\ActiveRecord
 {
@@ -35,14 +36,14 @@ class ExperienceDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['staff_id', 'is_current_job', 'start_date', 'end_date', 'job_title', 'company_name', 'job_location_city', 'job_location_country', 'description'], 'required'],
-            [['staff_id'], 'integer'],
+            [['user_id', 'is_current_job', 'start_date', 'end_date', 'job_title', 'company_name', 'job_location_city', 'job_location_country', 'description'], 'required'],
+            [['user_id'], 'integer'],
             [['start_date', 'end_date'], 'safe'],
             [['is_current_job'], 'string', 'max' => 1],
             [['job_title', 'job_location_city', 'job_location_country'], 'string', 'max' => 50],
             [['company_name'], 'string', 'max' => 100],
             [['description'], 'string', 'max' => 4000],
-            [['staff_id'], 'exist', 'skipOnError' => true, 'targetClass' => StaffProfile::className(), 'targetAttribute' => ['staff_id' => 'staff_id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -52,7 +53,8 @@ class ExperienceDetail extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'staff_id' => 'Staff ID',
+            'id' => 'ID',
+            'user_id' => 'User ID',
             'is_current_job' => 'Is Current Job',
             'start_date' => 'Start Date',
             'end_date' => 'End Date',
@@ -67,8 +69,8 @@ class ExperienceDetail extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getStaff()
+    public function getUser()
     {
-        return $this->hasOne(StaffProfile::className(), ['staff_id' => 'staff_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

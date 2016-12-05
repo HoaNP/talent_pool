@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use app\models\Tag;
+use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ProjectSearch */
@@ -24,18 +27,42 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'project_type_id',
-            'posted_by_id',
             'project_name',
+            'job_type',
             'project_summary',
+            [
+                'label' => "Created by",
+                'attribute' => 'user_id',
+                'value' => 'user.username',
+            ],
+
+            [
+                'attribute' => 'tag_ids',
+                'format' => 'raw',
+                'filter' => Html::activeDropDownList($searchModel, 'tag_ids', ArrayHelper::map(Tag::find()->asArray()->all(), 'id', 'tag_name'),['class'=>'form-control','prompt' => 'Select Category']),
+                'value' => function($data){
+                    $s = "";
+                    foreach ($data->tags as $t){
+                        //$model = $model->findModel('id');
+                        $s = $s . $t->tag_name . "<br>";
+                        //echo $t->tag_name . "<br>";
+                    }
+                    return $s;
+
+                },
+
+            ],
+
             // 'project_photo',
-            // 'responsibilities',
-            // 'salary_range',
+            'responsibilities',
+            'salary_range',
             // 'is_active',
-            // 'created_date',
+            // 'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
+<!--    --><?//= LinkPager::widget(['pagination' => $pagination]) ?>
+
 </div>

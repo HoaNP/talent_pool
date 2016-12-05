@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Project */
+/* @var $model app\models\User */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="project-view">
+<div class="user-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,29 +29,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user.username',
-            'project_name',
-            'job_type',
-            'project_summary',
-            'project_photo',
-            'responsibilities',
-            'salary_range',
-            'is_active',
-            'created_at',
+            'username',
+            'email:email',
+            'user_image',
             [
-                'label' => "Category",
+                'label' => "Talent Set",
                 'format' => 'raw',
                 'attribute' => function ($model){
                     $s = "";
-
-                    foreach ($model->tags as $t){
-                        $s = $s . $t->tag_name . "<br>";
+                    foreach ($model->skills as $t){
+                        $s = $s . $t->skill_name . "<br>";
                     }
                     return $s;
 
                 }
             ],
-
         ],
     ]) ?>
 

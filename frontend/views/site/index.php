@@ -1,5 +1,5 @@
 <?php
-
+defined('YII_DEBUG') or define('YII_DEBUG',true );
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';

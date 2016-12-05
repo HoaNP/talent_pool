@@ -8,12 +8,12 @@ use Yii;
  * This is the model class for table "skill_set".
  *
  * @property integer $id
- * @property string $skill_set_name
+ * @property integer $user_id
+ * @property integer $skill_id
+ * @property string $created_at
  *
- * @property ProjectRequiredSkillSet[] $projectRequiredSkillSets
- * @property Project[] $projectPosts
- * @property StaffSkillSet[] $staffSkillSets
- * @property StaffProfile[] $staff
+ * @property Skill $skill
+ * @property User $user
  */
 class SkillSet extends \yii\db\ActiveRecord
 {
@@ -31,9 +31,11 @@ class SkillSet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'skill_set_name'], 'required'],
-            [['id'], 'integer'],
-            [['skill_set_name'], 'string', 'max' => 50],
+            [['user_id', 'skill_id'], 'required'],
+            [['user_id', 'skill_id'], 'integer'],
+            [['created_at'], 'safe'],
+            [['skill_id'], 'exist', 'skipOnError' => true, 'targetClass' => Skill::className(), 'targetAttribute' => ['skill_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -44,39 +46,25 @@ class SkillSet extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'skill_set_name' => 'Skill Set Name',
+            'user_id' => 'User ID',
+            'skill_id' => 'Skill ID',
+            'created_at' => 'Created At',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProjectRequiredSkillSets()
+    public function getSkill()
     {
-        return $this->hasMany(ProjectRequiredSkillSet::className(), ['skill_set_id' => 'id']);
+        return $this->hasOne(Skill::className(), ['id' => 'skill_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProjectPosts()
+    public function getUser()
     {
-        return $this->hasMany(Project::className(), ['id' => 'project_post_id'])->viaTable('project_required_skill_set', ['skill_set_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStaffSkillSets()
-    {
-        return $this->hasMany(StaffSkillSet::className(), ['skill_set_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStaff()
-    {
-        return $this->hasMany(StaffProfile::className(), ['staff_id' => 'staff_id'])->viaTable('staff_skill_set', ['skill_set_id' => 'id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

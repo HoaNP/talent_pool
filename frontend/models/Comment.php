@@ -5,23 +5,23 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "tag_set".
+ * This is the model class for table "comment".
  *
  * @property integer $id
  * @property integer $project_id
- * @property integer $tag_id
+ * @property string $content
+ * @property string $created_at
  *
  * @property Project $project
- * @property Tag $tag
  */
-class TagSet extends \yii\db\ActiveRecord
+class Comment extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'tag_set';
+        return 'comment';
     }
 
     /**
@@ -30,10 +30,11 @@ class TagSet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_id', 'tag_id'], 'required'],
-            [['project_id', 'tag_id'], 'integer'],
+            [['project_id', 'content'], 'required'],
+            [['project_id'], 'integer'],
+            [['created_at'], 'safe'],
+            [['content'], 'string', 'max' => 300],
             [['project_id'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['project_id' => 'id']],
-            [['tag_id'], 'exist', 'skipOnError' => true, 'targetClass' => Tag::className(), 'targetAttribute' => ['tag_id' => 'id']],
         ];
     }
 
@@ -45,7 +46,8 @@ class TagSet extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'project_id' => 'Project ID',
-            'tag_id' => 'Tag ID',
+            'content' => 'Content',
+            'created_at' => 'Created At',
         ];
     }
 
@@ -55,13 +57,5 @@ class TagSet extends \yii\db\ActiveRecord
     public function getProject()
     {
         return $this->hasOne(Project::className(), ['id' => 'project_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTag()
-    {
-        return $this->hasOne(Tag::className(), ['id' => 'tag_id']);
     }
 }

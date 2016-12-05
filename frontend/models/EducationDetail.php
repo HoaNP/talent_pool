@@ -7,7 +7,8 @@ use Yii;
 /**
  * This is the model class for table "education_detail".
  *
- * @property integer $staff_id
+ * @property integer $id
+ * @property integer $user_id
  * @property string $certificate_degree_name
  * @property string $major
  * @property string $Institute_university_name
@@ -15,7 +16,7 @@ use Yii;
  * @property string $completion_date
  * @property integer $cgpa
  *
- * @property StaffProfile $staff
+ * @property User $user
  */
 class EducationDetail extends \yii\db\ActiveRecord
 {
@@ -33,11 +34,11 @@ class EducationDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['staff_id', 'certificate_degree_name', 'major', 'Institute_university_name', 'starting_date'], 'required'],
-            [['staff_id', 'cgpa'], 'integer'],
+            [['user_id', 'certificate_degree_name', 'major', 'Institute_university_name', 'starting_date'], 'required'],
+            [['user_id', 'cgpa'], 'integer'],
             [['starting_date', 'completion_date'], 'safe'],
             [['certificate_degree_name', 'major', 'Institute_university_name'], 'string', 'max' => 50],
-            [['staff_id'], 'exist', 'skipOnError' => true, 'targetClass' => StaffProfile::className(), 'targetAttribute' => ['staff_id' => 'staff_id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -47,7 +48,8 @@ class EducationDetail extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'staff_id' => 'Staff ID',
+            'id' => 'ID',
+            'user_id' => 'User ID',
             'certificate_degree_name' => 'Certificate Degree Name',
             'major' => 'Major',
             'Institute_university_name' => 'Institute University Name',
@@ -60,8 +62,8 @@ class EducationDetail extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getStaff()
+    public function getUser()
     {
-        return $this->hasOne(StaffProfile::className(), ['staff_id' => 'staff_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }
