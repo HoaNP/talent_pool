@@ -38,6 +38,7 @@ class User extends \yii\db\ActiveRecord
      */
     public $skill_ids;
     public $imageFile;
+    public $education_detail;
 
     public function rules()
     {
@@ -47,6 +48,7 @@ class User extends \yii\db\ActiveRecord
             [['skill_ids'], 'required'],
             [['imageFile'], 'file'],
             [['created_at', 'updated_at'], 'safe'],
+            [['education_detail'], 'safe'],
             [['status'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
@@ -63,7 +65,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'skill_ids' => 'Talent Set',
+            'skill_ids' => 'My Talent',
             'username' => 'Username',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',

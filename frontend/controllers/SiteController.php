@@ -14,6 +14,9 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use app\models\Skill;
 use app\models\User;
+use yii\base\Exception;
+
+
 
 /**
  * Site controller
@@ -216,26 +219,59 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionProfile()
+    public function actionUserContact()
     {
-        $user = Yii::$app->user;
-        $id = $user->getId();
-        //var_dump($user);
-        //exit();
+        return $this->render('../user/user-contact-form');
 
-        if ($user->load(Yii::$app->request->post())) {
-            $user->save();
-            return $this->render('Profile', [
-                //'model' => $model,
-                'user' => $user,
+    }
+    public function actionAccount()
+    {
+        try {
+            return $this->render('tada', [
+                'model' => User::findOne(Yii::$app->user->identity->getId()),
             ]);
+        } catch (Exception $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+    }
+    /**
+     * Updates an existing User model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdate($id)
+    {
+        $model = User::findOne(Yii::$app->user->identity->getId());//$this->findModel($id);
+        //var_dump($model->skill_ids);
+//        foreach ($model->skill_ids as $t){
+//            echo $t . "\n";
+//        }
+        //exit();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->created_at = date("Y-m-d H:i:s");
+            $imageName = $model->username . "_" . $model->created_at;
+            if (!empty($model->imageFile)){
+                //$model->imageFile->saveAs('Uploads/' . $imageName . "." . $model->imageFile->extension);
+                $model->user_image = 'userImage/' . $imageName . "." . $model->imageFile->extension;
+            }
+            else {
+                $model->user_image = 'Uploads/noImage.jpg';
+            }
+            if ($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
 
         } else {
-            return $this->render('Profile', [
-                //'model' => $model,
-                'user' => $user,
+            return $this->render('update', [
+                'model' => $model,
             ]);
         }
-
     }
 }

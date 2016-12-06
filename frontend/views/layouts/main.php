@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Talent Pool',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -49,14 +49,9 @@ AppAsset::register($this);
             'items' => [
                 [
                     'label' => 'Update information',
-                    'url' => ['/user/view-profile'],
-                    'id' => 4,
+                    'url' => ['/site/account'],
                 ],
 
-                [
-                    'label' => 'Contact information',
-                    'url' => ['/site/user-contact'],
-                ],
                 [
                     'label' => 'Settings',
                     'url' => ['/user-setting'],
@@ -97,7 +92,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Talent Pool <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

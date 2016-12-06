@@ -90,12 +90,14 @@ class ProjectController extends Controller
                 $model->project_photo = 'Uploads/noImage.jpg';
             }
             if ($model->save()) {
-                //var_dump($model);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
             else {
-                var_dump($model->getErrors());
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+
 
         } else {
             return $this->render('create', [

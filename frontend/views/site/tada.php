@@ -1,18 +1,43 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tungphung
- * Date: 2/12/16
- * Time: 9:40 PM
- */
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model app\models\User */
+
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Users'];
+
 ?>
-<div class="user-contact-form">
+<div class="user-view">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $form->field($model, 'contact_type')
-    ->dropDownList(
-        $model->getUserContactTypeOptions(),
-        ['prompt'=>Yii::t('frontend','What type of contact is this?')]
-    )->label(Yii::t('frontend','Type of Contact')) ?>
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'username',
+            'email:email',
+            'user_image',
+            [
+                'label' => "My Talent",
+                'format' => 'raw',
+                'attribute' => function ($model){
+                    $s = "";
+                    foreach ($model->skills as $t){
+                        $s = $s . $t->skill_name . "<br>";
+                    }
+                    return $s;
+
+                }
+            ],
+        ],
+    ]) ?>
+
 </div>

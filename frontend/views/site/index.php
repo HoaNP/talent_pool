@@ -7,6 +7,23 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
+        <table align="center">
+            <tr>
+                <td>
+                    <h1>
+                        Talent Pool
+                    </h1>
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <img src='icon.ico' height="100px">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="jumbotron">
         <h1>Congratulations!</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
@@ -14,40 +31,34 @@ $this->title = 'My Yii Application';
         <p><a class="btn btn-lg btn-success" href="?r=project">Project</a></p>
     </div>
 
-    <div class="body-content">
+    <div class="row">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+        <a href="?r=project">
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo 4; ?></h3>
+                        <p>Project</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="glyphicon glyphicon-signal logo">
+                        </span>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+        </a>
+        <a href="?r=user">
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-teal">
+                    <div class="inner">
+                        <h3><?php echo 3; ?></h3>
+                        <p>User</p>
+                    </div>
+                    <div class="icon inner">
+                        <span class="glyphicon glyphicon-globe logo"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+        </a>
         </div>
-
-    </div>
 </div>

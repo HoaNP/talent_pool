@@ -100,8 +100,16 @@ class UserController extends Controller
             else {
                 $model->user_image = 'Uploads/noImage.jpg';
             }
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'user_image',
             [
-                'label' => "Talent Set",
+                'label' => "My Talent",
                 'format' => 'raw',
                 'attribute' => function ($model){
                     $s = "";
