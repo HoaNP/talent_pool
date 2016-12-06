@@ -50,7 +50,7 @@ class EducationDetail extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'certificate_degree_name' => 'Certificate Degree Name',
+            'certificate_degree_name' => 'Certificate/ Degree Name',
             'major' => 'Major',
             'Institute_university_name' => 'Institute University Name',
             'starting_date' => 'Starting Date',

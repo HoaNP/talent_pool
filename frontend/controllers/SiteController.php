@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\EducationDetail;
+use app\models\ExperienceDetail;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -243,16 +245,13 @@ class SiteController extends Controller
     public function actionUpdate($id)
     {
         $model = User::findOne(Yii::$app->user->identity->getId());//$this->findModel($id);
-        //var_dump($model->skill_ids);
-//        foreach ($model->skill_ids as $t){
-//            echo $t . "\n";
-//        }
-        //exit();
+        $education  = new EducationDetail();
+        $experience = new ExperienceDetail();
         if ($model->load(Yii::$app->request->post())) {
             $model->created_at = date("Y-m-d H:i:s");
             $imageName = $model->username . "_" . $model->created_at;
             if (!empty($model->imageFile)){
-                //$model->imageFile->saveAs('Uploads/' . $imageName . "." . $model->imageFile->extension);
+
                 $model->user_image = 'userImage/' . $imageName . "." . $model->imageFile->extension;
             }
             else {
@@ -260,17 +259,27 @@ class SiteController extends Controller
             }
             if ($model->save())
             {
-                return $this->redirect(['view', 'id' => $model->id]);
+                //exit();
+
+                return $this->render('tada', [
+                    'model' => User::findOne(Yii::$app->user->identity->getId()),
+                    'education' => $education,
+                    'experience' => $experience,
+                ]);
             }
             else {
                 return $this->render('update', [
                     'model' => $model,
+                    'education' => $education,
+                    'experience' => $experience,
                 ]);
             }
 
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'education' => $education,
+                'experience' => $experience,
             ]);
         }
     }

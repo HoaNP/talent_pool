@@ -21,6 +21,8 @@ use yii\db\ActiveRecord;
  * @property integer $status
  *
  * @property SkillSet[] $skillSets
+ * @property EducationDetail[] $educationDetails
+ * @property ExperienceDetail[] $experienceDetails
  * @property Project[] $projects
  */
 class User extends \yii\db\ActiveRecord
@@ -120,5 +122,20 @@ class User extends \yii\db\ActiveRecord
     public function getSkillSets()
     {
         return $this->hasMany(SkillSet::className(), ['user_id' => 'id']);
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEducationDetails()
+    {
+        return $this->hasMany(EducationDetail::className(), ['user_id' => 'id']);
+
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExperienceDetails()
+    {
+        return $this->hasMany(ExperienceDetail::className(), ['user_id' => 'id']);
     }
 }
