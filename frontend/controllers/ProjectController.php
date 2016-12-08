@@ -2,19 +2,21 @@
 
 namespace frontend\controllers;
 
+use app\models\ApplyActivity;
+use app\models\Comment;
+use app\models\Project;
+use app\models\ProjectSearch;
 use app\models\Tag;
 use app\models\TagSet;
 use app\models\User;
 use Yii;
-use app\models\Project;
+use yii\data\Pagination;
+use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
-use app\models\ProjectSearch;
-use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use app\models\Comment;
-use yii\data\Pagination;
+use yii\web\UploadedFile;
+use yii\db\Query;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -60,10 +62,12 @@ class ProjectController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-
-
+        $user_id = Yii::$app->user->identity->getId();
+        $data = ApplyActivity::find()->where(['user_id'=> $user_id, 'project_id' => $id])->all();
+        $status = !empty($data);
         return $this->render('view', [
             'model' => $model,
+            'status' => $status,
         ]);
     }
 
@@ -172,6 +176,19 @@ class ProjectController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionApply($id){
+        $user_id = Yii::$app->user->identity->getId();
+        $apply = new ApplyActivity();
+        $apply->user_id = $user_id;
+        $apply->project_id = $id;
+        $apply->created_at = Date('dd-MM-yyyy');
+        if (!$apply->save()) {
+            var_dump($apply->getErrors());
+            exit();
+        }
+        return $this->render('apply');
     }
 
 }

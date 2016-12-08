@@ -247,9 +247,35 @@ class SiteController extends Controller
         $model = User::findOne(Yii::$app->user->identity->getId());//$this->findModel($id);
         $education  = new EducationDetail();
         $experience = new ExperienceDetail();
-        if ($model->load(Yii::$app->request->post())) {
+        $request = Yii::$app->request;
+
+        if ($model->load($request->post())) {
             $model->created_at = date("Y-m-d H:i:s");
             $imageName = $model->username . "_" . $model->created_at;
+            $getEdu = $request->post('EducationDetail');
+            $getExp = $request->post('ExperienceDetail');
+            $education = (new EducationDetail($get));
+            if (!empty($getEdu)) {
+                $education->user_id = Yii::$app->user->identity->getId();
+                $education->save();
+                return $this->render('update', [
+                    'model' => $model,
+                    'education' => $education,
+                    'experience' => $experience,
+                ]);
+
+            }
+            if (!empty($getExp)) {
+                $experience->user_id = Yii::$app->user->identity->getId();
+                $experience->save();
+                return $this->render('update', [
+                    'model' => $model,
+                    'education' => $education,
+                    'experience' => $experience,
+                ]);
+
+            }
+
             if (!empty($model->imageFile)){
 
                 $model->user_image = 'userImage/' . $imageName . "." . $model->imageFile->extension;

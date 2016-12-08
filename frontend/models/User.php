@@ -21,6 +21,7 @@ use yii\db\ActiveRecord;
  * @property integer $status
  *
  * @property SkillSet[] $skillSets
+ * @property ApplyActivity[] $applyActivities
  * @property EducationDetail[] $educationDetails
  * @property ExperienceDetail[] $experienceDetails
  * @property Project[] $projects
@@ -88,7 +89,13 @@ class User extends \yii\db\ActiveRecord
             LinkAllBehavior::className(),
         ];
     }
-
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApplyActivities()
+    {
+        return $this->hasMany(ApplyActivity::className(), ['user_id' => 'id']);
+    }
 
 
     public function afterSave($insert, $changedAttributes)

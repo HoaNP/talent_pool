@@ -65,6 +65,7 @@ class Project extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'tag_ids' => 'Category',
+            'user_id' => 'User ID',
             'user.username' => 'Created by',
             'project_name' => 'Project Name',
             'job_type' => 'Job Type',
@@ -122,6 +123,14 @@ class Project extends \yii\db\ActiveRecord
     public function getTagSets()
     {
         return $this->hasMany(TagSet::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApplyActivities()
+    {
+        return $this->hasMany(ApplyActivity::className(), ['project_id' => 'id']);
     }
 
     public function getTags(){

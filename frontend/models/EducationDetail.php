@@ -14,7 +14,7 @@ use Yii;
  * @property string $Institute_university_name
  * @property string $starting_date
  * @property string $completion_date
- * @property integer $cgpa
+ * @property double $cgpa
  *
  * @property User $user
  */
@@ -35,7 +35,8 @@ class EducationDetail extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'certificate_degree_name', 'major', 'Institute_university_name', 'starting_date'], 'required'],
-            [['user_id', 'cgpa'], 'integer'],
+            [['user_id'], 'integer'],
+            [['cgpa'], 'number'],
             [['starting_date', 'completion_date'], 'safe'],
             [['certificate_degree_name', 'major', 'Institute_university_name'], 'string', 'max' => 50],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],

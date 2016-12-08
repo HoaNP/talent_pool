@@ -2,7 +2,7 @@
 defined('YII_DEBUG') or define('YII_DEBUG',true );
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Talent Pool';
 ?>
 <div class="site-index">
 
@@ -24,9 +24,6 @@ $this->title = 'My Yii Application';
         </table>
     </div>
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
 
         <p><a class="btn btn-lg btn-success" href="?r=project">Project</a></p>
     </div>

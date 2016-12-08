@@ -59,76 +59,87 @@ use yii\jui\DatePicker;
         <label>Education</label>
         <?php
         Modal::begin([
-            'header' => '<h2>Hello world</h2>',
+            'header' => '<h2>Education Details</h2>',
             'toggleButton' => ['label' => 'Add'],
         ]);
         ?>
         <div class="site-education">
-        <?php $formEdu = ActiveForm::begin(); ?>
-        <?= $formEdu->field($education, 'certificate_degree_name')->dropDownList($degree) ?>
-        <?= $formEdu->field($education, 'major') ?>
-        <?= $formEdu->field($education, 'Institute_university_name') ?>
-        <?= $formEdu->field($education, 'cgpa') ?>
-<!--        --><?//= $formEdu->field($education, 'starting_date') ?>
-<!--        --><?//= $formEdu->field($education, 'completion_date') ?>
-        <?php
-        echo $formEdu->field($education, 'starting_date')->widget(\yii\jui\DatePicker::classname(), [
-            'name' => 'starting_date',
-            'language' => 'en-GB',
-            'dateFormat' => 'yyyy-MM-dd',
-            'options' => [
-                'changeMonth' => true,
-                'changeYear' => true,
-                'yearRange' => '1996:2099',
-                'showOn' => 'button',
-                'buttonImageOnly' => true,
-                'buttonText' => 'Select date'
-            ],
-        ]);
-        echo $formEdu->field($education, 'completion_date')->widget(\yii\jui\DatePicker::classname(), [
-            'name' => 'completion_date',
-            'language' => 'en-GB',
-            'dateFormat' => 'yyyy-MM-dd',
-            'options' => [
-                'changeMonth' => true,
-                'changeYear' => true,
-                'yearRange' => '1996:2099',
-                'showOn' => 'button',
-                'buttonImageOnly' => true,
-                'buttonText' => 'Select date'
-            ],
-        ]);
-        ?>
-        <?= Html::submitButton('Add', ['class' => 'btn btn-primary']) ?>
-        <?php ActiveForm::end(); ?>
+            <?php $formEdu = ActiveForm::begin(); ?>
 
-    </div><!-- site-education -->
+            <?= $formEdu->field($education, 'certificate_degree_name')->dropDownList($degree) ?>
+            <?= $formEdu->field($education, 'major') ?>
+            <?= $formEdu->field($education, 'Institute_university_name')->textInput() ?>
+            <?= $formEdu->field($education, 'cgpa') ?>
+            <?php
+            echo $formEdu->field($education, 'starting_date')->widget(DatePicker::classname(), [
+                'name' => 'starting_date',
+                'language' => 'en-GB',
+                'dateFormat' => 'dd-MM-yyyy',
+                'options' => [
+                    'changeMonth' => true,
+                    'changeYear' => true,
+                    'yearRange' => '1996:2099',
+                ],
+            ]);
+            echo $formEdu->field($education, 'completion_date')->widget(DatePicker::classname(), [
+                'name' => 'completion_date',
+                'language' => 'en-GB',
+                'dateFormat' => 'dd-MM-yyyy',
+                'options' => [
+                    'changeMonth' => true,
+                    'changeYear' => true,
+                    'yearRange' => '1996:2099',
+                ],
+            ]);
+            ?>
+            <?= Html::submitButton('Add', ['class' => 'btn btn-primary']) ?>
+            <?php ActiveForm::end(); ?>
+
+        </div><!-- site-education -->
         <?php
         Modal::end();
         ?>
-
-
-
     </div>
+
     <div class="site-experience">
         <label>Experience</label>
         <?php
         Modal::begin([
-            'header' => '<h2>Hello world</h2>',
+            'header' => '<h2>Experience Details</h2>',
             'toggleButton' => ['label' => 'Add'],
         ]);
         ?>
 
         <?php $formExp  = ActiveForm::begin(); ?>
 
-        <?= $formExp->field($experience, 'is_current_job') ?>
-        <?= $formExp->field($experience, 'start_date') ?>
-        <?= $formExp->field($experience, 'end_date') ?>
+        <?= $formExp->field($experience, 'is_current_job')->dropDownList(['No', 'Yes']) ?>
+        <?php
+        echo $formExp->field($experience, 'start_date')->widget(DatePicker::classname(), [
+            'name' => 'start_date',
+            'language' => 'en-GB',
+            'dateFormat' => 'dd-MM-yyyy',
+            'options' => [
+                'changeMonth' => true,
+                'changeYear' => true,
+                'yearRange' => '1996:2099',
+            ],
+        ]);
+        echo $formExp->field($experience, 'end_date')->widget(DatePicker::classname(), [
+            'name' => 'end_date',
+            'language' => 'en-GB',
+            'dateFormat' => 'dd-MM-yyyy',
+            'options' => [
+                'changeMonth' => true,
+                'changeYear' => true,
+                'yearRange' => '1996:2099',
+            ],
+        ]);
+        ?>
         <?= $formExp->field($experience, 'job_title') ?>
         <?= $formExp->field($experience, 'company_name') ?>
         <?= $formExp->field($experience, 'job_location_city') ?>
         <?= $formExp->field($experience, 'job_location_country') ?>
-        <?= $formExp->field($experience, 'description') ?>
+        <?= $formExp->field($experience, 'description')->textarea(['rows' => 4]) ?>
 
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
