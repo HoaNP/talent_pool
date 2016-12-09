@@ -46,7 +46,6 @@ class ProjectController extends Controller
     {
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->pagination->pageSize=10;
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -157,7 +156,8 @@ class ProjectController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+
+        $model = $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -181,6 +181,13 @@ class ProjectController extends Controller
     public function actionApply($id){
         $user_id = Yii::$app->user->identity->getId();
         $apply = new ApplyActivity();
+        Yii::$app->mailer->compose(['text' => '@common/mail/ReplyApplication'])
+            ->setFrom([Yii:: $app->params ['supportEmail'] => Yii:: $app->name])
+            ->setTo('phuonghoatink22@gmail.com')
+            ->setSubject('Message subject')
+            ->send();
+
+
         $apply->user_id = $user_id;
         $apply->project_id = $id;
         $apply->created_at = Date('dd-MM-yyyy');

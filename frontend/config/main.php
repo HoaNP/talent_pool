@@ -36,6 +36,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'fileTransportPath' => '@common/runtime',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'talent.pool.0000@gmail.com',
+                'password' => '1234@abcd',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

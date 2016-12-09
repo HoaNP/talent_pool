@@ -28,7 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'project_name',
-            'job_type',
+            [
+                'attribute' => 'job_type',
+                'filter' => Html::activeDropDownList($searchModel, 'job_type',[1, 2, 3],['class'=>'form-control','prompt' => 'Select Category']),
+
+            ],
             'project_summary',
             [
                 'label' => "Created by",
@@ -43,9 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($data){
                     $s = "";
                     foreach ($data->tags as $t){
-                        //$model = $model->findModel('id');
                         $s = $s . $t->tag_name . "<br>";
-                        //echo $t->tag_name . "<br>";
                     }
                     return $s;
 
