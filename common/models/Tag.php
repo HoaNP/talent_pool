@@ -5,23 +5,21 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "tag_set".
+ * This is the model class for table "tag".
  *
  * @property integer $id
- * @property integer $project_id
- * @property integer $tag_id
+ * @property string $tag_name
  *
- * @property Project $project
- * @property Tag $tag
+ * @property TagSet[] $tagSets
  */
-class TagSet extends \yii\db\ActiveRecord
+class Tag extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'tag_set';
+        return 'tag';
     }
 
     /**
@@ -30,10 +28,8 @@ class TagSet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_id', 'tag_id'], 'required'],
-            [['project_id', 'tag_id'], 'integer'],
-            [['project_id'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['project_id' => 'id']],
-            [['tag_id'], 'exist', 'skipOnError' => true, 'targetClass' => Tag::className(), 'targetAttribute' => ['tag_id' => 'id']],
+            [['tag_name'], 'required'],
+            [['tag_name'], 'string', 'max' => 30],
         ];
     }
 
@@ -44,24 +40,26 @@ class TagSet extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'project_id' => 'Project ID',
-            'tag_id' => 'Tag ID',
+            'tag_name' => 'Tag Name',
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProject()
+    public static function getTagByName($name)
     {
-        return $this->hasOne(Project::className(), ['id' => 'project_id']);
+        $tag = Tag::find()->where(['tag_name' => $name])->one();
+        if (!$tag) {
+            $tag = new Tag();
+            $tag->tag_name = $name;
+            $tag->save(false);
+        }
+        return $tag;
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTag()
+    public function getTagSets()
     {
-        return $this->hasOne(Tag::className(), ['id' => 'tag_id']);
+        return $this->hasMany(TagSet::className(), ['tag_id' => 'id']);
     }
 }

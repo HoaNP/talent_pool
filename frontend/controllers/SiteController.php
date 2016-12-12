@@ -1,8 +1,10 @@
 <?php
 namespace frontend\controllers;
 
-use app\models\EducationDetail;
-use app\models\ExperienceDetail;
+use common\models\EducationDetail;
+use common\models\ExperienceDetail;
+use common\models\CommonFunction;
+use common\models\UserSearch;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -14,8 +16,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use app\models\Skill;
-use app\models\User;
+use common\models\Skill;
+use common\models\User;
 use yii\base\Exception;
 
 
@@ -33,7 +35,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['index', 'logout', 'change-password', 'signup', 'request-password-reset'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -41,7 +43,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['index', 'logout', 'change-password'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -79,7 +81,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $numberOfProject = (new CommonFunction())->getProjectNumber();
+        $numberOfStaff = (new CommonFunction())->getStaffNumber();
+        return $this->render('index',[
+            'numberOfProject' => $numberOfProject,
+            'numberOfStaff' => $numberOfStaff,
+        ]);
+    }
+
+    public function actionUser()
+    {
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->andWhere(['role' => User::ROLE_STAFF]);
+        return $this->render('../user/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+          ]);
     }
 
     /**
@@ -229,7 +247,7 @@ class SiteController extends Controller
     public function actionAccount()
     {
         try {
-            return $this->render('tada', [
+            return $this->render('viewProfile', [
                 'model' => User::findOne(Yii::$app->user->identity->getId()),
             ]);
         } catch (Exception $e) {
@@ -245,39 +263,12 @@ class SiteController extends Controller
     public function actionUpdate($id)
     {
         $model = User::findOne(Yii::$app->user->identity->getId());//$this->findModel($id);
-        $education  = new EducationDetail();
-        $experience = new ExperienceDetail();
         $request = Yii::$app->request;
 
         if ($model->load($request->post())) {
             $model->created_at = date("Y-m-d H:i:s");
             $imageName = $model->username . "_" . $model->created_at;
-            $getEdu = $request->post('EducationDetail');
-            $getExp = $request->post('ExperienceDetail');
-            $education = (new EducationDetail($get));
-            if (!empty($getEdu)) {
-                $education->user_id = Yii::$app->user->identity->getId();
-                $education->save();
-                return $this->render('update', [
-                    'model' => $model,
-                    'education' => $education,
-                    'experience' => $experience,
-                ]);
-
-            }
-            if (!empty($getExp)) {
-                $experience->user_id = Yii::$app->user->identity->getId();
-                $experience->save();
-                return $this->render('update', [
-                    'model' => $model,
-                    'education' => $education,
-                    'experience' => $experience,
-                ]);
-
-            }
-
             if (!empty($model->imageFile)){
-
                 $model->user_image = 'userImage/' . $imageName . "." . $model->imageFile->extension;
             }
             else {
@@ -287,25 +278,22 @@ class SiteController extends Controller
             {
                 //exit();
 
-                return $this->render('tada', [
+                return $this->render('viewProfile', [
                     'model' => User::findOne(Yii::$app->user->identity->getId()),
-                    'education' => $education,
-                    'experience' => $experience,
+//                    'education' => $education,
+//                    'experience' => $experience,
                 ]);
             }
             else {
-                return $this->render('update', [
-                    'model' => $model,
-                    'education' => $education,
-                    'experience' => $experience,
-                ]);
+                var_dump($model->getErrors());
+                exit();
             }
 
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'education' => $education,
-                'experience' => $experience,
+//                'education' => $education,
+//                'experience' => $experience,
             ]);
         }
     }

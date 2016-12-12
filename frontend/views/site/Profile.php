@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\models\Skill;
+use common\models\Skill;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Skill */

@@ -2,13 +2,13 @@
 
 namespace frontend\controllers;
 
-use app\models\ApplyActivity;
-use app\models\Comment;
-use app\models\Project;
-use app\models\ProjectSearch;
-use app\models\Tag;
-use app\models\TagSet;
-use app\models\User;
+use common\models\ApplyActivity;
+use common\models\Comment;
+use common\models\Project;
+use common\models\ProjectSearch;
+use common\models\Tag;
+use common\models\TagSet;
+use common\models\User;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\VerbFilter;
@@ -46,6 +46,10 @@ class ProjectController extends Controller
     {
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        //$dataProvider->pagination->pageSize = 10;
+
+//        var_dump($searchModel);
+//        exit();
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

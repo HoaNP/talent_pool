@@ -27,11 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?php
                 $data = [
+                    //40 => 'admin',
+                    30 => 'Tech-officer',
                     20 => 'Staff',
-                    40 => 'Tech Officer'
+                    //10 => 'user'
                 ];
                 ?>
-                <?= $form->field($model, 'status')->dropDownList($data, ['prompt'=>'Choose a job type...'])?>
+                <?= $form->field($model, 'role')->dropDownList($data)?>
 
 
                 <div class="form-group">

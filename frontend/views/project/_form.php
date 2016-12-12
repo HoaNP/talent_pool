@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
-use app\models\Tag;
+use common\models\Tag;
 use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */

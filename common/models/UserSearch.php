@@ -1,16 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: tungphung
+ * Date: 12/12/16
+ * Time: 4:28 PM
+ */
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Skill;
 
-/**
- * SkillSearch represents the model behind the search form about `app\models\Skill`.
- */
-class SkillSearch extends Skill
+class UserSearch extends User
 {
     /**
      * @inheritdoc
@@ -18,8 +20,8 @@ class SkillSearch extends Skill
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['skill_name'], 'safe'],
+            [['id', 'status'], 'integer'],
+            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'user_image', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -41,7 +43,7 @@ class SkillSearch extends Skill
      */
     public function search($params)
     {
-        $query = Skill::find();
+        $query = User::find();
 
         // add conditions that should always apply here
 
@@ -60,10 +62,19 @@ class SkillSearch extends Skill
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'skill_name', $this->skill_name]);
+        $query->andFilterWhere(['like', 'username', $this->username])
+            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
+            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
+            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'user_image', $this->user_image]);
 
         return $dataProvider;
     }
 }
+

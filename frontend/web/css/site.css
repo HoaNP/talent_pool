@@ -74,6 +74,11 @@ a.desc:after {
 
 .grid-view td {
     /*white-space: nowrap;*/
+    white-space:pre-wrap;
+}
+.table td {
+    /*white-space: nowrap;*/
+    white-space:pre-wrap;
 }
 
 .grid-view .filters input,

@@ -23,36 +23,31 @@ $this->title = 'Talent Pool';
             </tr>
         </table>
     </div>
-    <div class="jumbotron">
-
-        <p><a class="btn btn-lg btn-success" href="?r=project">Project</a></p>
-    </div>
-
     <div class="row">
 
         <a href="?r=project">
-            <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-aqua">
+            <div class="col-lg-6 col-xs-6">
+                <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?php echo 4; ?></h3>
+                        <h3><?php echo $numberOfProject; ?></h3>
                         <p>Project</p>
                     </div>
-                    <div class="col-sm-4">
-                        <span class="glyphicon glyphicon-signal logo">
+                    <div class="icon inner">
+                        <span class="glyphicon glyphicon-th-list">
                         </span>
                     </div>
                 </div>
             </div>
         </a>
-        <a href="?r=user">
-            <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-teal">
+        <a href="?r=site/user">
+            <div class="col-lg-6 col-xs-6">
+                <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?php echo 3; ?></h3>
+                        <h3><?php echo $numberOfStaff; ?></h3>
                         <p>User</p>
                     </div>
                     <div class="icon inner">
-                        <span class="glyphicon glyphicon-globe logo"></span>
+                        <span class="glyphicon glyphicon-user logo"></span>
                     </div>
                 </div>
             </div>

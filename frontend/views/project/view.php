@@ -2,9 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\User;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Project */
+/* @var $model common\models\Project */
 
 $this->title = $model->project_name;
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
@@ -13,18 +14,27 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="project-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+        <?php
+        if (Yii::$app->user->identity->role > User::ROLE_STAFF) {
 
+
+            echo Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
+            ?>
+            <?php
+            echo Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]);
+        }
+        ?>
+     </p>
+
+    
+    
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -35,7 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'project_photo',
             'responsibilities',
             'salary_range',
-            'is_active',
             'created_at',
             [
                 'label' => "Category",
@@ -54,26 +63,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
     <?php
         if($model->user_id !== Yii::$app->user->identity->getId())
-        if ($status) {
-            echo Html::a('Do you want to join with us?', ['apply', 'id' => $model->id], [
-                'class' => 'btn btn-primary',
-                'disabled' => 'disabled',
-                'data' => [
-                    'confirm' => 'Are you sure you want to join this project?',
-                    'method' => 'post',
-                ],
-            ]);
-            echo " You have already applied for this job!";
-        }
-        else {
-            echo Html::a('Do you want to join with us?', ['apply', 'id' => $model->id], [
-                'class' => 'btn btn-primary',
-                'data' => [
-                    'confirm' => 'Are you sure you want to join this project?',
-                    'method' => 'post',
-                ],
-            ]);
-        }
+            if ($status) {
+                echo Html::a('Do you want to join this project?', ['apply', 'id' => $model->id], [
+                    'class' => 'btn btn-primary',
+                    'disabled' => 'disabled',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to join this project?',
+                        'method' => 'post',
+                    ],
+                ]);
+                echo " You have already applied for this job!";
+            }
+            else {
+                echo Html::a('Do you want to join this project?', ['apply', 'id' => $model->id], [
+                    'class' => 'btn btn-primary',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to join this project?',
+                        'method' => 'post',
+                    ],
+                ]);
+            }
         ?>
     </p>
 </div>

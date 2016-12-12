@@ -3,11 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
-use app\models\Tag;
+use common\models\Tag;
+use common\models\User;
 use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\ProjectSearch */
+/* @var $searchModel common\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Projects';
@@ -16,11 +17,20 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="project-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
+    <?php
+        if (Yii::$app->user->identity->role > User::ROLE_STAFF)
+         echo Html::a('Create Project', ['create'], ['class' => 'btn btn-success'])
+    ?>
+
+
     </p>
+    <?php
+    $data = ['Full-time' => 'Full-time',
+        'Part-time' => 'Part-time',
+        'Internship' => 'Internship'
+    ];
+    ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -30,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'project_name',
             [
                 'attribute' => 'job_type',
-                'filter' => Html::activeDropDownList($searchModel, 'job_type',[1, 2, 3],['class'=>'form-control','prompt' => 'Select Category']),
+                'filter' => Html::activeDropDownList($searchModel, 'job_type',$data,['class'=>'form-control','prompt' => 'Select Category']),
 
             ],
             'project_summary',
@@ -61,7 +71,17 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'is_active',
             // 'created_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'delete' => function () {
+                        return Yii::$app->user->identity->role > User::ROLE_STAFF ? true : false;
+                    },
+                    'update' => function () {
+                        return Yii::$app->user->identity->role > User::ROLE_STAFF ? true : false;
+                    }
+                ]
+            ],
         ],
     ]);
     ?>
