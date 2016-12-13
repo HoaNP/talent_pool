@@ -20,8 +20,6 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-
-
     <?= $form->field($model, 'imageFile')->fileInput() ?>
     <?php
     $data = [];

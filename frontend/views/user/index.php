@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use common\models\Skill;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -21,9 +24,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'username',
-            'email:email',
-            'user_image',
             'summary',
+            [
+                'attribute' => 'skill_ids',
+                'format' => 'raw',
+                'filter' => Html::activeDropDownList($searchModel, 'skill_ids', ArrayHelper::map(Skill::find()->asArray()->all(), 'id', 'skill_name'),['class'=>'form-control','prompt' => 'Select Talent']),
+                'value' => function($data){
+                    $s = "";
+                    foreach ($data->skills as $t){
+                        $s = $s . $t->skill_name . "<br>";
+                    }
+                    return $s;
+
+                },
+
+            ],
         ],
     ]); ?>
 </div>

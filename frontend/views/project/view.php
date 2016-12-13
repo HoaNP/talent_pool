@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?php
-        if (Yii::$app->user->identity->role > User::ROLE_STAFF) {
+        if (Yii::$app->user->identity->role > User::ROLE_OFFICER) {
 
 
             echo Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
@@ -43,9 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'job_type',
             'project_summary',
             'project_photo',
-            'responsibilities',
+            'requirement',
             'salary_range',
-            'created_at',
+            'info',
             [
                 'label' => "Category",
                 'format' => 'raw',
@@ -63,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
     <?php
         if($model->user_id !== Yii::$app->user->identity->getId())
+        {
             if ($status) {
                 echo Html::a('Do you want to join this project?', ['apply', 'id' => $model->id], [
                     'class' => 'btn btn-primary',
@@ -83,6 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]);
             }
-        ?>
+        }
+    ?>
     </p>
 </div>

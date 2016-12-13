@@ -26,6 +26,11 @@ use yii\jui\DatePicker;
     <?= $form->field($model, 'imageFile')->fileInput() ?>
 
     <?= $form->field($model, 'summary')->textarea(['maxlength' => true, 'rows' => 4]) ?>
+
+    <?= $form->field($model, 'education')->textarea(['maxlength' => true, 'rows' => 4]) ?>
+
+    <?= $form->field($model, 'experience')->textarea(['maxlength' => true, 'rows' => 4]) ?>
+
     <?php
     $data = [];
     foreach ($model->skills as $t) {

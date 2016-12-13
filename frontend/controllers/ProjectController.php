@@ -183,16 +183,40 @@ class ProjectController extends Controller
     }
 
     public function actionApply($id){
-        $user_id = Yii::$app->user->identity->getId();
+        $user = Yii::$app->user->identity;
+        $project = Project::findOne($id);
+        $officer = $project->user;
         $apply = new ApplyActivity();
-        Yii::$app->mailer->compose(['text' => '@common/mail/ReplyApplication'])
+        //var_dump($user->skills);
+
+        //exit();
+        Yii::$app->mailer->compose(
+            ['text' => '@common/mail/ReplyApplication-text'],
+            [
+                'user' => $user,
+                'project' => $project
+
+            ])
             ->setFrom([Yii:: $app->params ['supportEmail'] => Yii:: $app->name])
-            ->setTo('phuonghoatink22@gmail.com')
-            ->setSubject('Message subject')
+            ->setTo($user->email)
+            ->setSubject('[Talent Pool]Thanks for your submission!')
+            ->send();
+        Yii::$app->mailer->compose(
+            ['html' => '@common/mail/FwdApplication-html'],
+            [
+                'user' => $user,
+                'project' => $project,
+                'officer' => $officer,
+
+            ])
+            ->setFrom([Yii:: $app->params ['supportEmail'] => Yii:: $app->name])
+            ->setTo($officer->email)
+//            ->setTo('talent.pool.0000@gmail.com')
+            ->setSubject('[Talent Pool]' . 'Apply to '. $project->project_name)
             ->send();
 
 
-        $apply->user_id = $user_id;
+        $apply->user_id = $user->getId();
         $apply->project_id = $id;
         $apply->created_at = Date('dd-MM-yyyy');
         if (!$apply->save()) {

@@ -19,7 +19,7 @@ class ProjectSearch extends Project
     {
         return [
             [['id'], 'integer'],
-            [['project_name', 'user_id', 'job_type', 'project_summary', 'project_photo', 'responsibilities', 'salary_range', 'is_active', 'created_at', 'tag_ids'],  'safe'],
+            [['project_name', 'user_id', 'job_type', 'project_summary', 'project_photo', 'requirement', 'salary_range', 'is_active', 'created_at', 'tag_ids'],  'safe'],
         ];
     }
 
@@ -70,7 +70,7 @@ class ProjectSearch extends Project
             ->andFilterWhere(['like', 'job_type', $this->job_type])
             ->andFilterWhere(['like', 'project_summary', $this->project_summary])
             ->andFilterWhere(['like', 'project_photo', $this->project_photo])
-            ->andFilterWhere(['like', 'responsibilities', $this->responsibilities])
+            ->andFilterWhere(['like', 'requirement', $this->requirement])
             ->andFilterWhere(['like', 'salary_range', $this->salary_range])
             ->andFilterWhere(['like', 'user.username', $this->user_id])
             ->andFilterWhere(['like', 'tag.id', $this->tag_ids])

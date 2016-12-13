@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Users'];
             'email:email',
             'user_image',
             'summary',
+            'education',
+            'experience',
             [
                 'label' => "My Talent",
                 'format' => 'raw',

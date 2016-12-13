@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             // 'project_photo',
-            'responsibilities',
+            'requirement',
             'salary_range',
             // 'is_active',
             // 'created_at',
@@ -74,11 +74,17 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn',
                 'visibleButtons' => [
-                    'delete' => function () {
-                        return Yii::$app->user->identity->role > User::ROLE_STAFF ? true : false;
+                    'delete' => function ($data) {
+                        if (Yii::$app->user->identity->getId() === $data->user_id){
+                            return true;
+                        }
+                        return Yii::$app->user->identity->role > User::ROLE_OFFICER ? true : false;
                     },
-                    'update' => function () {
-                        return Yii::$app->user->identity->role > User::ROLE_STAFF ? true : false;
+                    'update' => function ($data) {
+                        if (Yii::$app->user->identity->getId() === $data->user_id){
+                            return true;
+                        }
+                        return Yii::$app->user->identity->role > User::ROLE_OFFICER ? true : false;
                     }
                 ]
             ],

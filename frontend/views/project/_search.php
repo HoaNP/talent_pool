@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'project_photo') ?>
 
-    <?php // echo $form->field($model, 'responsibilities') ?>
+    <?php // echo $form->field($model, 'requirement') ?>
 
     <?php // echo $form->field($model, 'salary_range') ?>
 

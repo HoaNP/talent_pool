@@ -15,11 +15,13 @@ use yii\db\ActiveRecord;
  * @property string $job_type
  * @property string $project_summary
  * @property string $project_photo
- * @property string $responsibilities
+ * @property string $requirement
  * @property string $salary_range
  * @property string $is_active
  * @property string $created_at
+ * @property string $info
  *
+ * @property ApplyActivity[] $applyActivities
  * @property Comment[] $comments
  * @property User $user
  * @property TagSet[] $tagSets
@@ -42,13 +44,14 @@ class Project extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'project_name', 'job_type', 'project_summary', 'responsibilities', 'salary_range'], 'required'],
+            [['user_id', 'project_name', 'job_type', 'project_summary', 'requirement', 'salary_range'], 'required'],
             [['user_id'], 'integer'],
             [['tag_ids'], 'required'],
             [['created_at'], 'safe'],
+            [['info'], 'string'],
             [['project_name'], 'string', 'max' => 50],
             [['job_type'], 'string', 'max' => 20],
-            [['project_summary', 'responsibilities'], 'string', 'max' => 500],
+            [['project_summary', 'requirement'], 'string', 'max' => 500],
             [['project_photo'], 'string', 'max' => 200],
             [['imageFile'], 'file'], //'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
             [['salary_range'], 'string', 'max' => 100],
@@ -72,10 +75,11 @@ class Project extends \yii\db\ActiveRecord
             'project_summary' => 'Project Summary',
             'project_photo' => 'Project Photo',
             'imageFile' => 'Project Photo',
-            'responsibilities' => 'Responsibilities',
+            'requirement' => 'Requirements',
             'salary_range' => 'Salary Range',
             'is_active' => 'Is Active',
             'created_at' => 'Created At',
+            'info' => 'Additional Info',
         ];
     }
 

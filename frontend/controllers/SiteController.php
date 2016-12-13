@@ -276,12 +276,8 @@ class SiteController extends Controller
             }
             if ($model->save())
             {
-                //exit();
-
                 return $this->render('viewProfile', [
                     'model' => User::findOne(Yii::$app->user->identity->getId()),
-//                    'education' => $education,
-//                    'experience' => $experience,
                 ]);
             }
             else {
@@ -292,8 +288,6 @@ class SiteController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-//                'education' => $education,
-//                'experience' => $experience,
             ]);
         }
     }

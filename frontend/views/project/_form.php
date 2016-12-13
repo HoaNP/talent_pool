@@ -31,9 +31,9 @@ use yii\helpers\ArrayHelper;
     ?>
     <?= $form->field($model, 'project_summary')->textarea(['maxlength' => true, 'rows' => 7]) ?>
     <?= $form->field($model, 'imageFile')->fileInput() ?>
-    <?= $form->field($model, 'responsibilities')->textarea(['maxlength' => true, 'rows' => 7]) ?>
-
+    <?= $form->field($model, 'requirement')->textarea(['maxlength' => true, 'rows' => 7]) ?>
     <?= $form->field($model, 'salary_range')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'info')->textarea(['maxlength' => true, 'rows' => 7, 'placeholder' => "More informations like contact, location, working time, ..."]) ?>
     <?php
     $data = [];
     foreach ($model->tags as $t) {

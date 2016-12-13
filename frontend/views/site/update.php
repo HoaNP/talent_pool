@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\User */
+/* @var $model common\models\User */
 
-$this->title = 'Update User: ' . $model->id;
+$this->title = 'Update User: ' . $model->username;
 $this->params['breadcrumbs'][] = ['label' => 'Users'];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
@@ -16,8 +16,6 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
-//        'education' => $education,
-//        'experience' => $experience,
     ]) ?>
 
 
