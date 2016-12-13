@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use common\models\Skill;
+use common\models\User;
 
 
 /* @var $this yii\web\View */
@@ -39,6 +40,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
 
             ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'delete' => function ($data) {
+                        if (Yii::$app->user->identity->getId() === $data->id){
+                            return true;
+                        }
+                        return Yii::$app->user->identity->role > User::ROLE_OFFICER ? true : false;
+                    },
+                    'update' => function ($data) {
+                        if (Yii::$app->user->identity->getId() === $data->id){
+                            return true;
+                        }
+                        return Yii::$app->user->identity->role > User::ROLE_OFFICER ? true : false;
+                    }
+                ]
+            ],
         ],
+
     ]); ?>
 </div>

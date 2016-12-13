@@ -15,7 +15,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Users'];
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?php
+        if (Yii::$app->user->identity->getId() === $model->id) {
+            echo Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
+        }
+        ?>
     </p>
 
     <?= DetailView::widget([

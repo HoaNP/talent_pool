@@ -254,6 +254,13 @@ class SiteController extends Controller
             throw new BadRequestHttpException($e->getMessage());
         }
     }
+    public function actionView ($id){
+        $model = User::findOne($id);
+        return $this->render('viewProfile', [
+            'model' => $model,
+        ]);
+
+    }
     /**
      * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.

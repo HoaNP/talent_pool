@@ -80,6 +80,7 @@ a.desc:after {
     /*white-space: nowrap;*/
     white-space:pre-wrap;
     max-width: 300px;
+    max-height: 100px;
 }
 
 .grid-view .filters input,
