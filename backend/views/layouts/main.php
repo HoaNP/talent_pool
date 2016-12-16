@@ -40,6 +40,30 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = [
+            'label' => 'Manager',
+            'items' => [
+                [
+                    'label' => 'Projects',
+                    'url' => ['/project/index'],
+                ],
+
+                [
+                    'label' => 'Users',
+                    'url' => ['/user/index'],
+                ],
+
+                [
+                    'label' => 'Activity',
+                    'url' => ['/apply-activity/index'],
+                ],
+//                [
+//                    'label' => 'Logout' .' (' . Yii::$app->user->identity->username . ')',
+//                    'url' => ['/site/logout'],
+//                    'linkOptions' => ['data-method' => 'post']
+//                ],
+            ],
+        ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

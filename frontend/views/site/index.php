@@ -4,89 +4,100 @@ defined('YII_DEBUG') or define('YII_DEBUG',true );
 
 $this->title = 'Talent Pool';
 ?>
+<head>
+    <title>Demo</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1200px;
+            height:700px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
 <div class="site-index">
 
     <div class="jumbotron">
         <table align="center">
             <tr>
                 <td>
-                    <h1>
+                    <h2>
                         Talent Pool
-                    </h1>
+                    </h2>
                 </td>
                 <td>
-                    &nbsp;
-                </td>
-                <td>
-                    <img src='icon.ico' height="100px">
+                    <img src='icon.ico' height="70px">
                 </td>
             </tr>
         </table>
     </div>
-    <div class="row">
+<!--    <div class="row">-->
+<!---->
+<!--        <a href="?r=project">-->
+<!--            <div class="col-lg-6 col-xs-6">-->
+<!--                <div class="small-box bg-red">-->
+<!--                    <div class="inner">-->
+<!--                        <h3>--><?php //echo $numberOfProject; ?><!--</h3>-->
+<!--                        <p>Project</p>-->
+<!--                    </div>-->
+<!--                    <div class="icon inner">-->
+<!--                        <span class="glyphicon glyphicon-th-list">-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--        <a href="?r=site/user">-->
+<!--            <div class="col-lg-6 col-xs-6">-->
+<!--                <div class="small-box bg-green">-->
+<!--                    <div class="inner">-->
+<!--                        <h3>--><?php //echo $numberOfStaff; ?><!--</h3>-->
+<!--                        <p>User</p>-->
+<!--                    </div>-->
+<!--                    <div class="icon inner">-->
+<!--                        <span class="glyphicon glyphicon-user logo"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--        </div>-->
+<!--</div>-->
+<body>
+    <a href="?r=site/user">
+        <?php echo "User: " . $numberOfStaff; ?>
+        <span class="glyphicon glyphicon-user logo"></span>
+    </a>
+    <a href="?r=project">
+        <?php echo "Project: " . $numberOfProject; ?>
+        <span class="glyphicon glyphicon-th-list"></span>
+    </a>
+    <div id="mynetwork"></div>
 
-        <a href="?r=project">
-            <div class="col-lg-6 col-xs-6">
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3><?php echo $numberOfProject; ?></h3>
-                        <p>Project</p>
-                    </div>
-                    <div class="icon inner">
-                        <span class="glyphicon glyphicon-th-list">
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="?r=site/user">
-            <div class="col-lg-6 col-xs-6">
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3><?php echo $numberOfStaff; ?></h3>
-                        <p>User</p>
-                    </div>
-                    <div class="icon inner">
-                        <span class="glyphicon glyphicon-user logo"></span>
-                    </div>
-                </div>
-            </div>
-        </a>
-        </div>
-</div>
-
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Network | node as icon</title>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css" />
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-    <style>
-        #mynetworkFA,
-        #mynetworkIO {
-            height: 300px;
-            width: 700px;
-            border:1px solid lightgrey;
+    <!-- this adds an invisible <div> element to the document to hold the JSON data -->
+    <div id="networkJSON-results" class="results" style="display:none"></div>
+<!--    <div id="mynetwork1"></div>-->
+<!---->
+<!--    <div id="networkJSON-results1" class="results" style="display:none"></div>-->
+   
+</body>
+<script type="text/javascript">
+      $.ajax({
+        async: false,
+        url: 'project.json',
+        dataType: "json",
+        success: function(data) {
+        $('#networkJSON-results').html(JSON.stringify(data)); 
         }
+    });
 
-        p {
-            max-width:700px;
-        }
-    </style>
 
-    <script language="JavaScript">
-        function draw() {
-            /*
-             * Example for FontAwesome
-             */
-            var optionsFA = {
+    var optionsFA = {
                 groups: {
                     skills: {
                         shape: 'icon',
@@ -108,96 +119,62 @@ $this->title = 'Talent Pool';
                     }
                 }
             };
-
-            // create an array with nodes
-            var nodesFA = [{
-                id: 1,
-                label: 'User 1',
-                group: 'users'
-            }, {
-                id: 2,
-                label: 'User 2',
-                group: 'users'
-            }, {
-                id: 3,
-                label: 'C/C++',
-                group: 'skills'
-            }, {
-                id: 4,
-                label: 'Java',
-                group: 'skills'
-            }, {
-                id: 5,
-                label: 'Android',
-                group: 'skills'
-            }, {
-                id: 6,
-                label: 'Web Design',
-                group: 'skills'
-            }, {
-                id: 7,
-                label: 'MVC',
-                group: 'skills'
-            }, {
-                id: 8,
-                label: 'HTML5',
-                group: 'skills'
-            }
-            ];
-
-            // create an array with edges
-            var edges = [{
-                from: 1,
-                to: 3
-            }, {
-                from: 1,
-                to: 4
-            }, {
-                from: 2,
-                to: 4
-            }, {
-                from: 2,
-                to: 5
-            }, {
-                from: 1,
-                to: 5
-            },{
-                from: 1,
-                to: 6
-            },{
-                from: 1,
-                to: 7
-            },{
-                from: 1,
-                to: 8
-            },{
-                from: 2,
-                to: 8
-            },{
-                from: 2,
-                to: 7
-            }
-            ];
-
-            // create a network
-            var containerFA = document.getElementById('mynetworkFA');
-            var dataFA = {
-                nodes: nodesFA,
-                edges: edges
-            };
-
-            var networkFA = new vis.Network(containerFA, dataFA, optionsFA);
+      var options = {
+          groups: {
+              tags: {
+                  shape: 'icon',
+                  icon: {
+                      face: 'FontAwesome',
+                      code: '\uf206',
+                      size: 50,
+                      color: '#114043'
+                  }
+              },
+              projects: {
+                  shape: 'icon',
+                  icon: {
+                      face: 'FontAwesome',
+                      code: '\uf135',
+                      size: 50,
+                      color: '#aa00ff'
+                  }
+              }
+          }
+      };
+    var gephiJsonDOM = document.getElementById('networkJSON-results');
 
 
-            
-        }
-    </script>
+    if (gephiJsonDOM.firstChild == null) {
+        window.alert('Error loading network file.')
+    }
 
-</head>
-<body onload="draw()">
-<h2>
- <div id="mynetworkFA"></div>
+    var gephiJSON = JSON.parse(gephiJsonDOM.firstChild.data);
+      //var gephiJSON1 = JSON.parse(gephiJsonDOM.firstChild.data);
 
-</body>
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: gephiJSON.nodes,
+    edges: gephiJSON.edges
+  };
 
-</html>
+  //var options = {};
+  var network = new vis.Network(container, data, options);
+//      $.ajax({
+//          async: false,
+//          url: 'demo.json',
+//          dataType: "json",
+//          success: function(data) {
+//              $('#networkJSON-results1').html(JSON.stringify(data));
+//          }
+//      });
+//      var gephiJsonDOM = document.getElementById('networkJSON-results1');
+//      var container = document.getElementById('mynetwork1');
+//      var data = {
+//          nodes: gephiJSON.nodes,
+//          edges: gephiJSON.edges
+//      };
+//      //var options = {};
+//      var network = new vis.Network(container, data, options);
+</script>
+

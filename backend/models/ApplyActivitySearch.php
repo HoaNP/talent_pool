@@ -1,18 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tungphung
- * Date: 12/12/16
- * Time: 4:28 PM
- */
 
-namespace common\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use app\models\ApplyActivity;
 
-class UserSearch extends User
+/**
+ * ApplyActivitySearch represents the model behind the search form about `app\models\ApplyActivity`.
+ */
+class ApplyActivitySearch extends ApplyActivity
 {
     /**
      * @inheritdoc
@@ -20,8 +18,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'user_image', 'created_at', 'updated_at', 'skill_ids'], 'safe'],
+            [['id', 'user_id', 'project_id'], 'integer'],
+            [['created_at'], 'safe'],
         ];
     }
 
@@ -43,7 +41,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = ApplyActivity::find();
 
         // add conditions that should always apply here
 
@@ -59,26 +57,14 @@ class UserSearch extends User
             return $dataProvider;
         }
 
-        $query->joinWith('skills');
-
-
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'user_id' => $this->user_id,
+            'project_id' => $this->project_id,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'status' => $this->status,
         ]);
-
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
-            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
-            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'skill.id', $this->skill_ids])
-            ->andFilterWhere(['like', 'user_image', $this->user_image]);
 
         return $dataProvider;
     }
 }
-

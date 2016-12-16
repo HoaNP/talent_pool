@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?php
-        if (Yii::$app->user->identity->role > User::ROLE_OFFICER) {
+        if (Yii::$app->user->identity->role > User::ROLE_OFFICER || Yii::$app->user->identity->getId() === $model->user_id) {
 
 
             echo Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
@@ -43,6 +43,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'job_type',
             'project_summary',
             'project_photo',
+//            [
+//                'attribute' => 'project_photo',
+//                'format' => 'image',
+//                'contentOptions' =>['style' => 'max-width:300px'],
+//                'value' => function ($model) {
+//                    return $model->getImageUrl();
+//                },
+//            ],
             'requirement',
             'salary_range',
             'info',

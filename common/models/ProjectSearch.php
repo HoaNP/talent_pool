@@ -58,6 +58,8 @@ class ProjectSearch extends Project
         }
         $query->joinWith('user');
         $query->joinWith('tags');
+//        var_dump($query->all());
+//        exit();
 
         // grid filtering conditions
         $query->andFilterWhere([

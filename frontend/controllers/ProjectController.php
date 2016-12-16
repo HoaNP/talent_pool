@@ -13,6 +13,7 @@ use Yii;
 use yii\data\Pagination;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -46,13 +47,22 @@ class ProjectController extends Controller
     {
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        //$dataProvider->pagination->pageSize = 10;
-
-//        var_dump($searchModel);
+        $dataProvider->pagination->pageSize = 1000;
+        $dataProvider->setTotalCount($dataProvider->count);
+        //$pages = new Pagination(['totalCount' => $dataProvider->count]);
+        //$models = $dataProvider->offset($pages->offset)
+          //  ->limit($pages->limit)
+           // ->all();
+        $d = $dataProvider->count;
+//        $dataProvider = ($dataProvider->models);
+        //VarDumper::dump($d);
+//        var_dump($d);
 //        exit();
+//        $dataProvider->pagination->setPageSize(10);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+//            'pages' => $pages,
         //    'pagination' => $pagination,
         ]);
     }

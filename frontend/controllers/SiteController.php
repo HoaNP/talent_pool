@@ -4,6 +4,8 @@ namespace frontend\controllers;
 use common\models\EducationDetail;
 use common\models\ExperienceDetail;
 use common\models\CommonFunction;
+use common\models\Project;
+use common\models\Tag;
 use common\models\UserSearch;
 use Yii;
 use yii\base\InvalidParamException;
@@ -18,6 +20,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Skill;
 use common\models\User;
+use yii\data\ActiveDataProvider;
 use yii\base\Exception;
 
 
@@ -83,6 +86,7 @@ class SiteController extends Controller
     {
         $numberOfProject = (new CommonFunction())->getProjectNumber();
         $numberOfStaff = (new CommonFunction())->getStaffNumber();
+        $this->actionDemo1();
         return $this->render('index',[
             'numberOfProject' => $numberOfProject,
             'numberOfStaff' => $numberOfStaff,
@@ -297,5 +301,58 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    public function actionDemo(){
+        $model = User::findAll(['role' => 20]);
+        foreach ($model as $m){
+            echo '{"id": "u' . $m->id . '", "label": "' . $m->username . '", "group": "users"},' . "<br>" ;
+        }
+        $skill = Skill::find()->all();
+        foreach ($skill as $t){
+            echo '{"id": "s' . $t->id . '", "label": "' . $t->skill_name . '", "group": "skills"},' . "<br>" ;
+        }
+        foreach ($model as $m){
+
+            foreach ($m->skills as $t){
+                echo '{"from": "u' . $m->id . '", ';
+                echo '"to": "s' . $t->id . '"},' . "<br>" ;
+            }
+        }
+        exit();
+    }
+    public function actionDemo1(){
+        $myfile = fopen("project.json", "w") or die("Unable to open file!");
+        $model = Project::findAll(['is_active' => 'Y']);
+        fwrite($myfile, "{\"nodes\":[\n");
+        foreach ($model as $m){
+            fwrite($myfile, '{"id": "u' . $m->id . '", "label": "' . $m->project_name . '", "group": "projects"},' . "\n" );
+            //echo '{"id": "u' . $m->id . '", "label": "' . $m->project_name . '", "group": "projects"},' . "<br>" ;
+        }
+        $skill = Tag::find()->all();
+        $cnt = Tag::find()->count();
+        $i = 0;
+        foreach ($skill as $t){
+            $i++;
+            fwrite($myfile, '{"id": "s' . $t->id . '", "label": "' . $t->tag_name . '", "group": "tags"}');
+            if ($i < $cnt) fwrite($myfile, ",\n");
+//            echo '{"id": "s' . $t->id . '", "label": "' . $t->tag_name . '", "group": "tags"},' . "<br>" ;
+        }
+
+        fwrite($myfile, "\n ], \n \"edges\":[ \n");
+        foreach ($model as $m){
+
+            foreach ($m->tags as $t){
+                fwrite($myfile,'{"from": "u' . $m->id . '", "to": "s' . $t->id . '"},' . "\n");
+//                echo '{"from": "u' . $m->id . '", "to": "s' . $t->id . '"},' . "<br>" ;
+            }
+        }
+        $myfile = fopen("project.json", "a");
+        $stat = fstat($myfile);
+        ftruncate($myfile, $stat['size']-2);
+        //fwrite($myfile, "\n]}");
+        fwrite($myfile, "]\n}");
+        fclose($myfile);
+
+        //exit();
     }
 }
