@@ -1,0 +1,1269 @@
+2016-12-19 14:35:08 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:35:08 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFd-nH8AAAEAAA0t9iYAAAAL'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFd-nH8AAAEAAA0t9iYAAAAL'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53442'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482129308.448
+    'REQUEST_TIME' => 1482129308
+]
+2016-12-19 14:35:42 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:35:42 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFd-vn8AAAEAACQoor0AAAAB'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFd-vn8AAAEAACQoor0AAAAB'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53445'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482129342.618
+    'REQUEST_TIME' => 1482129342
+]
+2016-12-19 14:39:02 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:39:02 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeAhX8AAAEAACmGwCgAAAAA'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeAhX8AAAEAACmGwCgAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53506'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482129541.083
+    'REQUEST_TIME' => 1482129541
+]
+2016-12-19 14:46:34 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:46:34 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCSn8AAAEAACmGwCkAAAAA'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCSn8AAAEAACmGwCkAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53586'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482129994.021
+    'REQUEST_TIME' => 1482129994
+]
+2016-12-19 14:46:37 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:46:37 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCTX8AAAEAACmGwCoAAAAA'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCTX8AAAEAACmGwCoAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53586'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482129997.436
+    'REQUEST_TIME' => 1482129997
+]
+2016-12-19 14:47:02 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:47:02 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCZn8AAAEAACZf2cIAAAAD'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCZn8AAAEAACZf2cIAAAAD'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53588'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130022.292
+    'REQUEST_TIME' => 1482130022
+]
+2016-12-19 14:47:03 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:47:03 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCZ38AAAEAACZf2cMAAAAD'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCZ38AAAEAACZf2cMAAAAD'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53588'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130023.576
+    'REQUEST_TIME' => 1482130023
+]
+2016-12-19 14:47:06 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:47:06 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCan8AAAEAACZf2cQAAAAD'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCan8AAAEAACZf2cQAAAAD'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53588'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130026.582
+    'REQUEST_TIME' => 1482130026
+]
+2016-12-19 14:47:15 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:47:15 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCc38AAAEAABoqbcUAAAAH'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCc38AAAEAABoqbcUAAAAH'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '25eec527-8c2d-ce89-592f-e1f9248ac7e2'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53591'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130035.253
+    'REQUEST_TIME' => 1482130035
+]
+2016-12-19 14:48:00 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:48:00 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCoH8AAAEAACpktR0AAAAE'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCoH8AAAEAACpktR0AAAAE'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53596'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130080.402
+    'REQUEST_TIME' => 1482130080
+]
+2016-12-19 14:48:43 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:48:43 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeCy38AAAEAAA0t9igAAAAL'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeCy38AAAEAAA0t9igAAAAL'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53602'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/users'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130123.721
+    'REQUEST_TIME' => 1482130123
+]
+2016-12-19 14:51:13 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:51:13 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDYX8AAAEAACQoor8AAAAB'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDYX8AAAEAACQoor8AAAAB'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'c7000859-beb7-409d-f53f-0846a47ce414'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53619'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130273.184
+    'REQUEST_TIME' => 1482130273
+]
+2016-12-19 14:51:29 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:51:29 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDcX8AAAEAACmGwCsAAAAA'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDcX8AAAEAACmGwCsAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '5c463699-d4ae-7ead-d0f9-77d069401e6f'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53624'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/ID'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/ID'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130289.814
+    'REQUEST_TIME' => 1482130289
+]
+2016-12-19 14:51:34 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:51:34 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDdn8AAAEAACZf2cUAAAAD'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDdn8AAAEAACZf2cUAAAAD'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '4497b230-2012-07ad-6c4b-c0bbd16a6170'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53625'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/IN'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/IN'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130294.93
+    'REQUEST_TIME' => 1482130294
+]
+2016-12-19 14:52:07 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:52:07 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDl38AAAEAABoqbcYAAAAH'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDl38AAAEAABoqbcYAAAAH'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '4f8b87a5-46f7-52c7-6db1-7acfd08f8cf1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53627'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/ID'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/ID'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130327.086
+    'REQUEST_TIME' => 1482130327
+]
+2016-12-19 14:52:11 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:52:11 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDm38AAAEAABoqbccAAAAH'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDm38AAAEAABoqbccAAAAH'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'c668d11b-4205-a981-279b-24951c53a4de'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53627'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/4'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/4'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130331.391
+    'REQUEST_TIME' => 1482130331
+]
+2016-12-19 14:52:16 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 14:52:16 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDoH8AAAEAABoqbcgAAAAH'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDoH8AAAEAABoqbcgAAAAH'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '038dfeb5-4cf7-c117-f0a0-2bb53874ebe0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53627'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/id'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/id'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130336.27
+    'REQUEST_TIME' => 1482130336
+]
+2016-12-19 14:52:31 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Object not found: id' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/Action.php:101
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/ViewAction.php(27): yii\rest\Action->findModel('id')
+#1 [internal function]: yii\rest\ViewAction->run('id')
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('view', Array)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/view', Array)
+#6 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2016-12-19 14:52:30 [::1][-][-][info][application] $_GET = [
+    'id' => 'id'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDrn8AAAEAACpktR4AAAAE'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDrn8AAAEAACpktR4AAAAE'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '84806a78-adc5-2cb2-c5c7-265c6c76d86c'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53628'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/id'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/id'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130350.962
+    'REQUEST_TIME' => 1482130350
+]
+2016-12-19 14:52:36 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Object not found: ID' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/Action.php:101
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/ViewAction.php(27): yii\rest\Action->findModel('ID')
+#1 [internal function]: yii\rest\ViewAction->run('ID')
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('view', Array)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/view', Array)
+#6 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#8 {main}
+2016-12-19 14:52:36 [::1][-][-][info][application] $_GET = [
+    'id' => 'ID'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeDtH8AAAEAAA0oILAAAAAG'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeDtH8AAAEAAA0oILAAAAAG'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'd19a4e8e-ac41-98c1-a7b3-2fb6bdf0ba46'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53635'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/ID'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/ID'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130356.344
+    'REQUEST_TIME' => 1482130356
+]
+2016-12-19 14:59:32 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'NI' for key 'PRIMARY'' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(210): yii\db\Command->execute()
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(763): yii\db\ActiveRecord::updateAll(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(533): yii\db\BaseActiveRecord->updateInternal(NULL)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(634): yii\db\ActiveRecord->update(true, NULL)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/UpdateAction.php(46): yii\db\BaseActiveRecord->save()
+#6 [internal function]: yii\rest\UpdateAction->run('US')
+#7 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#8 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#9 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('update', Array)
+#10 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/upda...', Array)
+#11 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'NI' for key 'PRIMARY'
+The SQL being executed was: UPDATE `country` SET `code`='NI', `name`='Nigeria', `population`=2016 WHERE `code`='US'' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Schema.php:631
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'UPDATE `country...')
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(210): yii\db\Command->execute()
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(763): yii\db\ActiveRecord::updateAll(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(533): yii\db\BaseActiveRecord->updateInternal(NULL)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(634): yii\db\ActiveRecord->update(true, NULL)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/UpdateAction.php(46): yii\db\BaseActiveRecord->save()
+#6 [internal function]: yii\rest\UpdateAction->run('US')
+#7 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#8 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#9 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('update', Array)
+#10 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/upda...', Array)
+#11 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry 'NI' for key 'PRIMARY'
+)
+
+2016-12-19 14:59:32 [::1][-][-][info][application] $_GET = [
+    'id' => 'US'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeFVH8AAAEAAATer2YAAAAC'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeFVH8AAAEAAATer2YAAAAC'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '36'
+    'HTTP_POSTMAN_TOKEN' => '44951733-ff8c-dd4f-08f1-655c15ab4a18'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ORIGIN' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53687'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/US'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'PATCH'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/US'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130772.352
+    'REQUEST_TIME' => 1482130772
+]
+2016-12-19 14:59:40 [::1][-][-][error][yii\db\IntegrityException] exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'NI' for key 'PRIMARY'' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(210): yii\db\Command->execute()
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(763): yii\db\ActiveRecord::updateAll(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(533): yii\db\BaseActiveRecord->updateInternal(NULL)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(634): yii\db\ActiveRecord->update(true, NULL)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/UpdateAction.php(46): yii\db\BaseActiveRecord->save()
+#6 [internal function]: yii\rest\UpdateAction->run('US')
+#7 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#8 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#9 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('update', Array)
+#10 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/upda...', Array)
+#11 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\db\IntegrityException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'NI' for key 'PRIMARY'
+The SQL being executed was: UPDATE `country` SET `code`='NI', `name`='Nigeria' WHERE `code`='US'' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Schema.php:631
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'UPDATE `country...')
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(210): yii\db\Command->execute()
+#2 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(763): yii\db\ActiveRecord::updateAll(Array, Array)
+#3 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/ActiveRecord.php(533): yii\db\BaseActiveRecord->updateInternal(NULL)
+#4 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/db/BaseActiveRecord.php(634): yii\db\ActiveRecord->update(true, NULL)
+#5 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/rest/UpdateAction.php(46): yii\db\BaseActiveRecord->save()
+#6 [internal function]: yii\rest\UpdateAction->run('US')
+#7 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Action.php(92): call_user_func_array(Array, Array)
+#8 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\Action->runWithParams(Array)
+#9 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('update', Array)
+#10 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(100): yii\base\Module->runAction('v1/country/upda...', Array)
+#11 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry 'NI' for key 'PRIMARY'
+)
+
+2016-12-19 14:59:40 [::1][-][-][info][application] $_GET = [
+    'id' => 'US'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeFXH8AAAEAAA0t9ioAAAAL'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeFXH8AAAEAAA0t9ioAAAAL'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '20'
+    'HTTP_POSTMAN_TOKEN' => '15e27abe-4c90-8425-b72c-da89ec0803d8'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ORIGIN' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53689'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/countries/US'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'PATCH'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/countries/US'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130780.248
+    'REQUEST_TIME' => 1482130780
+]
+2016-12-19 15:01:43 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 15:01:43 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"101\",\"test101key\",2592000]\";}'
+    '_csrf-frontend' => 'e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4\";}'
+    '_frontendSessionId' => 'nq087riv7lcejrsq7oqhpktn07'
+    '_csrf-backend' => '97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu\";}'
+    'advanced-backend' => 'g6pmtvm0h3ehqkhanuj0iscj45'
+    '_csrf' => '509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn\";}'
+    '_backendSessionId' => '1mr5gc459b07c9qjjav64ur7q1'
+    '_identity-backend' => '54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp\",2592000]\";}'
+    'advanced-frontend' => 'i02fsi19j2d79n6knu60r54hu3'
+    '_identity-frontend' => '63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[5,\"-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeF138AAAEAAA0rn04AAAAJ'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeF138AAAEAAA0rn04AAAAJ'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_identity=0060efa791d9135aee4f20b3d80f06d4c907c74ca5990cb619d17d31f89c44a2a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22101%22%2C%22test101key%22%2C2592000%5D%22%3B%7D; _csrf-frontend=e71fc3cd7bd4f391c7880e0c5c7805b19b28fafd65a48ad2ae37d496c635c59ba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22RrJUCHbv5u2X0mm7SxB8eX9qNn4uvrV4%22%3B%7D; _frontendSessionId=nq087riv7lcejrsq7oqhpktn07; _csrf-backend=97254d325b6c69769caade43065430ac85dcdcc5a688c50ba0fa103ee84ad295a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226xBrSVgWRNhxWwg5BMWBVKSVUINSr0gu%22%3B%7D; advanced-backend=g6pmtvm0h3ehqkhanuj0iscj45; _csrf=509f2a8b8cdaffd28cc9e57d20dc9da8bc77b2dcbcb284ee4fb88e005f0056e8a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22JBDGcKWYAymcpzzv9ljk2qRve9ZB84nn%22%3B%7D; _backendSessionId=1mr5gc459b07c9qjjav64ur7q1; _identity-backend=54bef117b168d5bedaaac17de363c9013795b65648dbf95d69f01e5e0440dda2a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22zTaCsnNMZbF18Ik1zf-KVkFXMp5yZVwp%22%2C2592000%5D%22%3B%7D; advanced-frontend=i02fsi19j2d79n6knu60r54hu3; _identity-frontend=63c8b39a080d60c087f84fd2e7a1a61c86ecf66022ffa32ecfbcefdcaaf3bb88a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22-bFVVOUlE9LTmcgEyk8EljZ9d7hgCJAp%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53714'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/users'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/users'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482130903.034
+    'REQUEST_TIME' => 1482130903
+]
+2016-12-19 15:07:55 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Request.php:191
+Stack trace:
+#0 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/web/Application.php(80): yii\web\Request->resolve()
+#1 /Users/tungphung/Documents/Sites/talent_pool/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/tungphung/Documents/Sites/talent_pool/api/web/index.php(19): yii\base\Application->run()
+#3 {main}
+2016-12-19 15:07:55 [::1][-][-][info][application] $_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'WFeHS38AAAEAACmGwC4AAAAA'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'WFeHS38AAAEAACmGwC4AAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_POSTMAN_TOKEN' => '04f0b16e-e4ce-a194-455b-36db05b3b8ce'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'DYLD_LIBRARY_PATH' => '/Applications/XAMPP/xamppfiles/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Unix) OpenSSL/1.0.2h PHP/5.6.24 mod_perl/2.0.8-dev Perl/v5.16.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/tungphung/Documents/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/tungphung/Documents/Sites/talent_pool/api/web/index.php'
+    'REMOTE_PORT' => '53756'
+    'REDIRECT_URL' => '/talent_pool/api/web/v1/user'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/talent_pool/api/web/v1/user'
+    'SCRIPT_NAME' => '/talent_pool/api/web/index.php'
+    'PHP_SELF' => '/talent_pool/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1482131275.823
+    'REQUEST_TIME' => 1482131275
+]

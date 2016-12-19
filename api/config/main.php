@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -13,39 +14,20 @@ return [
     'modules' => [
         'v1' => [
             'basePath' => '@app/modules/v1',
-            'class' => 'api\modules\v1\Module'   // v1 module
-        ],
+            'class' => 'api\modules\v1\Module'   // here is our v1 modules
+        ]
     ],
     'components' => [
-        'request' => [
-            // Enable JSON Input
-            'enableCookieValidation' => false,
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ],
-        ],
-        'response' => [
-            'format' => 'json',
-        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
-            'enableSession' => false,
-            'loginUrl' => null,
         ],
         'log' => [
-//            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'traceLevel' => 3,
+            'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error'],
-                    'logFile' => '@app/runtime/logs/api-error.log'
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['warning'],
-                    'logFile' => '@app/runtime/logs/api-warning.log'
+                    'levels' => ['error', 'warning'],
                 ],
             ],
         ],
@@ -53,12 +35,14 @@ return [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            // Add URL Rules for API
             'rules' => [
-                # API for ActiveRecords
-                ['class' => 'yii\rest\UrlRule', 'pluralize' => false,
-                    'controller' => ['v1/resident-location', 'v1/quuppa-button', 'v1/user', 'v1/resident', 'v1/notification', 'v1/fcm-token', 'v1/marker'],
-                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['v1/user', 'v1/project'],   // our country api rule
+                    'tokens' => [
+                        '{id}' => '<id:\\w+>'
+]
+                ]
             ],
         ]
     ],

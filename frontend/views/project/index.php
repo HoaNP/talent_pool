@@ -91,6 +91,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-<!--    --><?//= LinkPager::widget(['pagination' => $pagination]) ?>
-
 </div>
