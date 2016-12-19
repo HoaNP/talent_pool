@@ -228,7 +228,7 @@ class ProjectController extends Controller
 
         $apply->user_id = $user->getId();
         $apply->project_id = $id;
-        $apply->created_at = Date('dd-MM-yyyy');
+        $apply->created_at = Date('Y-m-d H:i:s');
         if (!$apply->save()) {
             var_dump($apply->getErrors());
             exit();
