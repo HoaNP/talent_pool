@@ -1,8 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\EducationDetail;
-use common\models\ExperienceDetail;
+use common\models\ApplyActivity;
 use common\models\CommonFunction;
 use common\models\Project;
 use common\models\Tag;
@@ -354,5 +353,23 @@ class SiteController extends Controller
         fclose($myfile);
 
         //exit();
+    }
+
+    public function actionLog(){
+        $id = Yii::$app->user->identity->getId();
+        $query = ApplyActivity::find()->where(['user_id' => $id]);
+        // $model = ApplyActivity::findAll(['user_id' => $id]);
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            ]);
+        foreach ($provider as $t){
+//            echo $t;
+        }
+//                var_dump($provider);
+//        exit();
+        return $this->render('log', ['model' => $provider]);
+//        var_dump($model);
+//        exit();
+
     }
 }

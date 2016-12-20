@@ -38,7 +38,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
+        ['label' => 'Project', 'url' => ['/project/index']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
@@ -52,11 +52,11 @@ AppAsset::register($this);
                     'label' => 'Update information',
                     'url' => ['/site/account'],
                 ],
-
                 [
-                    'label' => 'Settings',
-                    'url' => ['/user-setting'],
+                    'label' => 'My submissions',
+                    'url' => ['/site/log'],
                 ],
+
                 [
                     'label' => 'Logout' .' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
